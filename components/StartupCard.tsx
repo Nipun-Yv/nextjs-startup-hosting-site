@@ -53,7 +53,7 @@ const StartupCard = ({post}:{post:Post}) => {
             style={{width:"40px",height:"40px", borderRadius:"50%",border:"0.1px solid grey",objectFit:"cover"}} unoptimized/>
         </HStack>
         <Text textAlign="center" fontSize="small" color="gray.500" px="3">
-            {post.description.slice(0,60)}...
+            {post.description.slice(0,40)}...
         </Text>
         <Image height="90" width="25" src={post.image} alt="Image of the startup"
         style={{height:"35%",width:'90%', borderRadius:"12px",objectFit:"cover"}} unoptimized/>
