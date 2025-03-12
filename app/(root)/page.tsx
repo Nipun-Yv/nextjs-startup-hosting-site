@@ -27,7 +27,7 @@ export default async function Home({searchParams}:{searchParams:Promise<{query?:
   const params={search:query||null}
   const session=await auth()
   console.log(session?.id)
-  const posts=await client.fetch(FETCH_STARTUP_WITH_SEARCH_TERM,{search:params})
+  const posts=await client.fetch(FETCH_STARTUP_WITH_SEARCH_TERM,{search:params.search})
   console.log(posts)
   return (
     <Box>

@@ -10,7 +10,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     
       console.log(profile)
       console.log("WELL IT DOES")
-      const existingUser=await client.fetch(FETCH_AUTHOR_WITH_ID,{id:profile?.id})
+      const existingUser=await client.config({useCdn:false}).fetch(FETCH_AUTHOR_WITH_ID,{id:profile?.id})
       console.log(existingUser)
       if(!existingUser){
         await writeClient.create({
@@ -26,7 +26,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     async jwt({token,profile,account}:any){
       if(account && profile){
-        const user=await client.fetch(FETCH_AUTHOR_WITH_ID,{id:profile?.id});
+        const user=await client.config({useCdn:false}).fetch(FETCH_AUTHOR_WITH_ID,{id:profile?.id});
         if(user){
         token.id=user._id
         }
