@@ -28,12 +28,12 @@ export const createPitch=async (prevState:any,form:FormData,pitch:string)=>{
         }
     }
     try{
-        const transaction = writeClient.transaction();
-        transaction.create({_type: "startup", ...startup});
-        await transaction.commit(); 
+        const result=await writeClient.create({_type:"startup",...startup})
+        
             return {
             error:"",
             status:"200",
+            ...result
         }
     }
     catch(err){

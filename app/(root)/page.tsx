@@ -27,7 +27,7 @@ export default async function Home({searchParams}:{searchParams:Promise<{query?:
   const params={search:query||null}
   const session=await auth()
   console.log(session?.id)
-  const {data:posts}=await sanityFetch({query:FETCH_STARTUP_WITH_SEARCH_TERM,params})
+  const posts=await client.fetch(FETCH_STARTUP_WITH_SEARCH_TERM,{search:params})
   console.log(posts)
   return (
     <Box>
@@ -49,7 +49,7 @@ export default async function Home({searchParams}:{searchParams:Promise<{query?:
           <StartupCard key={post._id} post={post}/>
         ))}
       </HStack>
-      <SanityLive/>
+      {/* <SanityLive/> */}
     </Box>
   );
 }
