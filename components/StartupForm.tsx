@@ -86,7 +86,7 @@ const StartupForm = () => {
             onChange={(value)=>setPitch(value?value:"")}
              style={{width:"100%",border:"3px solid black", borderRadius:"20px",overflow:"hidden"}}/>
         </Field.Root>
-        <Button variant={"surface"} w="90%" rounded="20px" bg="#EE2B69" color="white" h="50px" border="1px solid black"
+        <Button disabled={isPending} variant={"surface"} w="90%" rounded="20px" bg="#EE2B69" color="white" h="50px" border="1px solid black"
         fontWeight={"extrabold"} type="submit">
             SUBMIT FORM
         </Button>
